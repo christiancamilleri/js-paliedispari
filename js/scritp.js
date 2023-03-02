@@ -95,15 +95,17 @@ function randomNumber(min, max) {
 }
 
 let newNumber = randomNumber(1,5);
-console.log(newNumber)
+// console.log(newNumber)
 
 // sommiamo i 2 numeri alla pressione del bottone q
 playEl.addEventListener("click", function() {
     
     let somma = (newNumber + parseInt(sceltaNumeroEl.value));
-    console.log(somma)
+    console.log("numero utente", sceltaNumeroEl.value, "numero pc", newNumber, "somma", somma, "se è pari o dispari", resultPariDispari)
     
-    console.log(parioDispari(somma))
+    // console.log(parioDispari(somma))
+    
+    
 
     if (resultPariDispari == sceltaEl.value) {
         console.log("hai vinto")
@@ -121,9 +123,9 @@ let resultPariDispari;
 function parioDispari(num) {
  if(num % 2 == 0){
         let resultPariDispari = "Pari" 
-        console.log("è pari")
+        // console.log("è pari")
     } else {
         let resultPariDispari = "Dispari"
-        console.log(" è dispari")
+        // console.log(" è dispari")
     }
 }
