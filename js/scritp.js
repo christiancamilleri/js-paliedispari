@@ -24,6 +24,27 @@
     // } else {
     //     console.log("la parola inserita non è una parola palindroma")
     // }
+     
+    // bersaglio input html
+    let wordElement = document.getElementById("word");
+    let verificaEl = document.getElementById("verifica");
+    let risposteEl = document.getElementById("risposte");
+    console.log(wordElement + verificaEl + risposteEl)
+
+
+    // creo evento al clik del bottone
+    verificaEl.addEventListener("click", function(){
+         
+        palindroma(wordElement.value)
+
+        // dico di svuotare l'input
+        wordElement.value = " "; 
+
+    })
+
+
+    
+
 
     // funzione
     function palindroma(parola) {
@@ -32,13 +53,19 @@
         
         // se parolaInversa == parola allora la parola scelta è palindroma altrimenti no
         if(parolaInversa == parola) {
-            console.log("la parola scelta è palindroma")
+                // creo elemento in html
+                let newEl = document.createElement("p");
+                risposteEl.append(newEl);
+                newEl.innerText = "è palindroma"; 
+
         } else {
-            console.log("la parola scelta non è palindroma")
+             // creo elemento in html
+             let newEl = document.createElement("p");
+             risposteEl.append(newEl);
+             newEl.innerText = "non è palindroma"; 
         }
 
-      console.log(parolaInversa)
     }
     
-   console.log(palindroma(prompt("digita una parola")));
+//    console.log(palindroma(prompt("digita una parola")));
 
