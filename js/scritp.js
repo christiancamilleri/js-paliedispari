@@ -105,6 +105,11 @@ playEl.addEventListener("click", function() {
     
     console.log(parioDispari(somma))
 
+    if (resultPariDispari == sceltaEl.value) {
+        console.log("hai vinto")
+    } else {
+        console.log("hai perso")
+    }
     
 })
 
@@ -115,10 +120,10 @@ let resultPariDispari;
 
 function parioDispari(num) {
  if(num % 2 == 0){
-        let resultPariDispari = "pari" 
+        let resultPariDispari = "Pari" 
         console.log("è pari")
     } else {
-        let resultPariDispari = "dispari"
+        let resultPariDispari = "Dispari"
         console.log(" è dispari")
     }
 }
