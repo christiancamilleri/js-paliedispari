@@ -101,8 +101,12 @@ let newNumber = randomNumber(1,5);
 playEl.addEventListener("click", function() {
     
     let somma = (newNumber + parseInt(sceltaNumeroEl.value));
-    console.log("numero utente", sceltaNumeroEl.value, "numero pc", newNumber, "somma", somma, "se è pari o dispari", resultPariDispari)
-    
+    console.log( "scelta", sceltaEl.value)
+    console.log("numero utente", sceltaNumeroEl.value)
+    console.log( "numero pc", newNumber)
+    console.log( "somma", somma)
+    console.log("se è pari o dispari", resultPariDispari)
+
     // console.log(parioDispari(somma))
     
     
