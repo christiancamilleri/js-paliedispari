@@ -1,3 +1,7 @@
+
+
+// ESERCIZIO 1 PALINDROMA
+
 // chedi ad un utente una parola
 // crea una funzione in cui verifichi se quella parola è palidroma o no
 
@@ -42,10 +46,6 @@
 
     })
 
-
-    
-
-
     // funzione
     function palindroma(parola) {
          // divido la parola in lettere, la rigiro, la ri unisco   
@@ -67,5 +67,39 @@
 
     }
     
-//    console.log(palindroma(prompt("digita una parola")));
+// ----------------------------------------
+
+// ESERCIZIO 2 PARI O DISPARI
+
+
+// utente sceglie pari o dispari
+// digita un numero da 1 a 5
+// generiamo un numero da 1 a 5 per il pc usando una funzione
+// sommiamo i due numeri
+// stabliamo se la somma dei due numeri è pari o dispari usando una funzione
+// dichiariamo chi ha vinto 
+
+// bersaglio elementi html
+let sceltaEl = document.getElementById("scelta");
+let playEl = document.getElementById("play");
+let sceltaNumeroEl = document.getElementById("scelta-numero")
+// console.log(sceltaEl.value + playEl + sceltaNumeroEl.value)
+
+// creo funzione per pc per generare numero random 
+function randomNumber(min, max) {
+    
+    let random = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return random;
+}
+
+
+// sommiamo i 2 numeri 
+playEl.addEventListener("click", function() {
+    let somma = randomNumber(1,5) + sceltaNumeroEl.value;
+    console.log(sceltaNumeroEl.value)
+    console.log(randomNumber(1,5));
+
+})
+
 
