@@ -84,6 +84,7 @@ let sceltaEl = document.getElementById("scelta");
 let playEl = document.getElementById("play");
 let sceltaNumeroEl = document.getElementById("scelta-numero")
 // console.log(sceltaEl.value + playEl + sceltaNumeroEl.value)
+// console.log(sceltaEl.value)
 
 // creo funzione per pc per generare numero random 
 function randomNumber(min, max) {
@@ -93,13 +94,31 @@ function randomNumber(min, max) {
     return random;
 }
 
+let newNumber = randomNumber(1,5);
+console.log(newNumber)
 
-// sommiamo i 2 numeri 
+// sommiamo i 2 numeri alla pressione del bottone q
 playEl.addEventListener("click", function() {
-    let somma = randomNumber(1,5) + sceltaNumeroEl.value;
-    console.log(sceltaNumeroEl.value)
-    console.log(randomNumber(1,5));
+    
+    let somma = (newNumber + parseInt(sceltaNumeroEl.value));
+    console.log(somma)
+    
+    console.log(parioDispari(somma))
 
+    
 })
 
 
+
+let resultPariDispari;
+
+
+function parioDispari(num) {
+ if(num % 2 == 0){
+        let resultPariDispari = "pari" 
+        console.log("è pari")
+    } else {
+        let resultPariDispari = "dispari"
+        console.log(" è dispari")
+    }
+}
