@@ -6,7 +6,7 @@
 // crea una funzione in cui verifichi se quella parola è palidroma o no
 
 
-    // // chiedo all'utente la parola
+    // chiedo all'utente la parola
     // let word = prompt("digita una parola e ti dirò se è palidroma o no");
     
     // // divido la parola in lettere
@@ -33,41 +33,43 @@
     let wordElement = document.getElementById("word");
     let verificaEl = document.getElementById("verifica");
     let risposteEl = document.getElementById("risposte");
-    console.log(wordElement + verificaEl + risposteEl)
+    console.log(wordElement + verificaEl + risposteEl);
 
 
     // creo evento al clik del bottone
     verificaEl.addEventListener("click", function(){
-         
-        palindroma(wordElement.value)
 
-        // dico di svuotare l'input
-        wordElement.value = " "; 
-
-    })
-
-    // funzione
-    function palindroma(parola) {
-         // divido la parola in lettere, la rigiro, la ri unisco   
-        let parolaInversa = parola.split("").reverse().join("");
-        
         // se parolaInversa == parola allora la parola scelta è palindroma altrimenti no
-        if(parolaInversa == parola) {
+        if(isPalindrome(wordElement.value)) {
                 // creo elemento in html
-                let newEl = document.createElement("p");
-                risposteEl.append(newEl);
-                newEl.innerText = "è palindroma"; 
-
+                risposteEl.innerText = "è palindroma"; 
+    
         } else {
              // creo elemento in html
-             let newEl = document.createElement("p");
-             risposteEl.append(newEl);
-             newEl.innerText = "non è palindroma"; 
+             risposteEl.innerText = "non è palindroma"; 
         }
 
-    }
+        wordElement.value = "";
+
+    });
+
     
-// ----------------------------------------
+    
+    function isPalindrome(parola) {
+        
+        // divido la parola in lettere, la rigiro, la ri unisco   
+        let parolaInversa = parola.split("").reverse().join("");
+        console.log(parolaInversa);
+
+        if (parola == parolaInversa) {
+            return true;
+        } else {
+            return false;
+        }    
+    }
+
+    
+// ---------------------------------------------------------------------
 
 // ESERCIZIO 2 PARI O DISPARI
 
@@ -86,6 +88,35 @@ let sceltaNumeroEl = document.getElementById("scelta-numero")
 // console.log(sceltaEl.value + playEl + sceltaNumeroEl.value)
 // console.log(sceltaEl.value)
 
+
+// console.log(newNumber)
+
+// sommiamo i 2 numeri alla pressione del bottone q
+playEl.addEventListener("click", function() {
+    let newNumber = randomNumber(1,5);
+    
+    let somma = (newNumber + parseInt(sceltaNumeroEl.value));
+    console.log( "scelta", sceltaEl.value)
+    console.log("numero utente", sceltaNumeroEl.value)
+    console.log( "numero pc", newNumber)
+    console.log( "somma", somma)
+    console.log("è pari o dispari?", parioDispari(somma))
+    
+    // parioDispari(somma);
+
+    if (parioDispari(somma) == sceltaEl.value) {
+        console.log("hai vinto")
+    } else {
+        console.log("hai perso")
+    }
+    
+
+
+})
+
+// --------------------------------------------------
+
+
 // creo funzione per pc per generare numero random 
 function randomNumber(min, max) {
     
@@ -94,42 +125,21 @@ function randomNumber(min, max) {
     return random;
 }
 
-let newNumber = randomNumber(1,5);
-// console.log(newNumber)
-
-// sommiamo i 2 numeri alla pressione del bottone q
-playEl.addEventListener("click", function() {
-    
-    let somma = (newNumber + parseInt(sceltaNumeroEl.value));
-    console.log( "scelta", sceltaEl.value)
-    console.log("numero utente", sceltaNumeroEl.value)
-    console.log( "numero pc", newNumber)
-    console.log( "somma", somma)
-    console.log("se è pari o dispari", resultPariDispari)
-
-    // console.log(parioDispari(somma))
-    
-    
-
-    if (resultPariDispari == sceltaEl.value) {
-        console.log("hai vinto")
-    } else {
-        console.log("hai perso")
-    }
-    
-})
-
-
-
-let resultPariDispari;
-
-
+/**
+ * ritorna "pari" se num è pari, altrimenti "dispari"
+ * @param {number} num
+ * @returns {string}
+ */
 function parioDispari(num) {
- if(num % 2 == 0){
-        let resultPariDispari = "Pari" 
-        // console.log("è pari")
+    
+    if(num % 2 == 0){
+        
+        return "pari"
+        
     } else {
-        let resultPariDispari = "Dispari"
-        // console.log(" è dispari")
+        
+        return "dispari"
     }
+    
 }
+
